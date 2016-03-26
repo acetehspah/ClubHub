@@ -1,0 +1,44 @@
+<html>
+  <title>
+    GunnHacks
+  </title>
+<script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="https://cdn.blockspring.com/blockspring.js"></script>
+<script>
+  blockspring.runParsed("query-public-google-spreadsheet", { "query": "SELECT *", "url":"https://docs.google.com/spreadsheets/d/1LdoK6CKz2OHWyBB5JUlYxxeYy4BSKpW7-w4crSODpx4/edit#gid=786410895" }, { "api_key": "br_28029_d069ee1984a468c879dc72cf038c089798b5ba4d" }, function(res){
+      var array = $.map(res.params, function(value, index) {
+        return [value];
+      });
+      var testArr = []
+      for (i = 0; i < array[0].length; i++){
+        var test=  $.map(array[0][i], function(value, index) {
+        return [value]; });
+        testArr.push(test.slice(0,-1));
+      }
+      document.write("<table width='30%' border='0' cellspacing='0' cellpadding='0' style='border: 0.5px solid black;padding:0;margin-left:37.5%'><tr><th style='border: 1px solid black;font-family:sans-serif;'>Clubs</th>");
+
+      for (i = 0; i < testArr.length;i++ )
+      {
+          document.write("<tr>");
+          document.write("<td style='border: 1px solid black;margin:0;text-align: center; font-size:100%;font-family:sans-serif;'>" + testArr[i][0] + "</td>");
+          document.write("</tr>");
+      }
+    document.write("</table>");
+    })
+  $(document).ready(function(){
+    $("div.box img").hover(
+      function(){$(this).siblings("p:first").show();},
+      function(){$(this).siblings("p:first").hide();}
+    );
+});
+</script>
+<style>
+  table, tr, td {
+    border-collapse: collapse;
+  }
+</style>
+</script>
+<body>
+
+</body>
+</html>
